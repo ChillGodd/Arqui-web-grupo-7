@@ -2,6 +2,7 @@ package pe.edu.upc.awgrupo7.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.awgrupo7.dtos.RevisionesDTO;
 import pe.edu.upc.awgrupo7.entities.Revisiones;
@@ -12,6 +13,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/revisiones")
+@PreAuthorize("hasAuthority('admin')")
 public class RevisionesController {
 
     @Autowired

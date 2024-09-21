@@ -2,9 +2,9 @@ package pe.edu.upc.awgrupo7.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.awgrupo7.dtos.HerramientasDTO;
-import pe.edu.upc.awgrupo7.dtos.UserDTO;
 import pe.edu.upc.awgrupo7.entities.Herramientas;
 import pe.edu.upc.awgrupo7.servicesinterfaces.IHerramientasService;
 
@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/herramientas")
+@PreAuthorize("hasAuthority('admin')")
 public class HerramientasController {
 
     @Autowired

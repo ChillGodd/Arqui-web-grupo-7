@@ -2,6 +2,7 @@ package pe.edu.upc.awgrupo7.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.awgrupo7.dtos.CantidadTareasCumplidasDTO;
 import pe.edu.upc.awgrupo7.dtos.TareasDTO;
@@ -16,6 +17,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/tareas")
+@PreAuthorize("hasAuthority('admin')")
 public class TareasController {
 
     @Autowired
