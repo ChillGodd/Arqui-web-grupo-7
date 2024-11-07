@@ -1,0 +1,28 @@
+  <div> <div class="container" style="text-align: center;margin:5%">
+  <div><h1>Nuevos roles </h1></div>
+  <div>
+      <form class="example-form" [formGroup]="form" (submit)="aceptar()">
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Codigo de Rol</mat-label>
+          <input matInput formControlName="hcodigo">
+        </mat-form-field>
+
+        <br/>
+          <mat-form-field class="example-full-width">
+            <mat-label>Rol</mat-label>
+            <input matInput placeholder="Nombre del rol" formControlName="hnombre">
+          </mat-form-field>
+          <br/>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Descripcion</mat-label>
+            <input matInput placeholder="Descripcion del rol" formControlName="hdescripcion">
+          </mat-form-field>
+
+          <div>
+            <button mat-flat-button class="custom-button">Aceptar</button>
+          </div>
+      </form>
+  </div>
+</div>
