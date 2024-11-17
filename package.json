@@ -23,6 +23,7 @@
     "@angular/platform-server": "^18.2.0",
     "@angular/router": "^18.2.0",
     "@angular/ssr": "^18.2.3",
+    "@auth0/angular-jwt": "^5.2.0",
     "@swimlane/ngx-charts": "^21.0.0",
     "chart.js": "^4.4.6",
     "d3": "^7.9.0",
