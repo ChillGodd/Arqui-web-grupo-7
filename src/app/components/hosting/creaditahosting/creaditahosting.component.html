@@ -1,0 +1,76 @@
+<div class="container" style="text-align: center; margin: 5%">
+  <h1>{{ edicion ? 'Editar Hosting' : 'Registrar Hosting' }}</h1>
+  <div>
+    <form [formGroup]="form" (ngSubmit)="registrar()">
+      
+      <mat-form-field *ngIf="edicion">
+        <mat-label>ID de Hosting</mat-label>
+        <input matInput formControlName="idHosting" readonly />
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Tipo</mat-label>
+        <input matInput placeholder="Ej. Compartido, VPS, Dedicado" formControlName="tipo" />
+        <mat-error *ngIf="form.get('tipo')?.hasError('required')">
+          El tipo de hosting es obligatorio.
+        </mat-error>
+      </mat-form-field>
+      <br />
+
+      <mat-form-field class="example-full-width">
+        <mat-label>URL</mat-label>
+        <input matInput placeholder="Ej. https://mi-sitio.com" formControlName="url" />
+        <mat-error *ngIf="form.get('url')?.hasError('required')">
+          La URL es obligatoria.
+        </mat-error>
+        <mat-error *ngIf="form.get('url')?.hasError('pattern')">
+          La URL debe ser válida (debe iniciar con http o https).
+        </mat-error>
+      </mat-form-field>
+      <br />
+
+      <mat-form-field>
+        <mat-label>Fecha de Adquisición</mat-label>
+        <input matInput [matDatepicker]="pickerAdquisicion" formControlName="fechaAdquisicion" />
+        <mat-datepicker-toggle matSuffix [for]="pickerAdquisicion"></mat-datepicker-toggle>
+        <mat-datepicker #pickerAdquisicion></mat-datepicker>
+        <mat-error *ngIf="form.get('fechaAdquisicion')?.hasError('required')">
+          La fecha de adquisición es obligatoria.
+        </mat-error>
+      </mat-form-field>
+      <br />
+
+      <mat-form-field>
+        <mat-label>Fecha de Expiración</mat-label>
+        <input matInput [matDatepicker]="pickerExpiracion" formControlName="fechaExpiracion" />
+        <mat-datepicker-toggle matSuffix [for]="pickerExpiracion"></mat-datepicker-toggle>
+        <mat-datepicker #pickerExpiracion></mat-datepicker>
+        <mat-error *ngIf="form.get('fechaExpiracion')?.hasError('required')">
+          La fecha de expiración es obligatoria.
+        </mat-error>
+      </mat-form-field>
+      <br />
+
+      <mat-form-field>
+        <mat-label>Proyecto Asociado</mat-label>
+        <mat-select formControlName="proyecto">
+          <mat-option *ngFor="let proyecto of proyectos" [value]="proyecto.idProyecto">
+            {{ proyecto.nombre }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('proyecto')?.hasError('required')">
+          Selecciona un proyecto asociado.
+        </mat-error>
+      </mat-form-field>
+      
+
+
+      <div>
+        <button mat-flat-button color="primary" type="submit" class="custom-button" [disabled]="form.invalid">
+          {{ edicion ? 'Actualizar' : 'Registrar' }}
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>

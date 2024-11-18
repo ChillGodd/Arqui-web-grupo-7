@@ -1,0 +1,45 @@
+<div class="container">
+    <h1>{{ edicion ? 'Editar Usuario' : 'Crear Usuario' }}</h1>
+  
+    <form [formGroup]="form" (ngSubmit)="registrar()">
+      <mat-form-field appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="nombreUser" />
+        <mat-error *ngIf="form.controls['nombreUser'].hasError('required')">El nombre es obligatorio.</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Contraseña</mat-label>
+        <input matInput formControlName="contrasenia" type="password" />
+        <mat-error *ngIf="form.controls['contrasenia'].hasError('required')">La contraseña es obligatoria.</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Fecha de Registro</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="fecha" />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="form.controls['fecha'].hasError('required')">La fecha de registro es obligatoria.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Activo</mat-label>
+        <mat-select formControlName="enabled">
+          <mat-option [value]="true">Activo</mat-option>
+          <mat-option [value]="false">Inactivo</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+  <mat-label>Rol</mat-label>
+  <mat-select formControlName="rol" [(value)]="user.rol.idRol">
+    <mat-option *ngFor="let rol of listaderoles" [value]="rol.idRol">
+      {{ rol.nombre }}
+    </mat-option>
+  </mat-select>
+  <mat-error *ngIf="form.controls['rol'].hasError('required')">El rol es obligatorio.</mat-error>
+</mat-form-field>
+      <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">{{ edicion ? 'Actualizar' : 'Crear' }}</button>
+    </form>
+  </div>
+  

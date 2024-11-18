@@ -1,0 +1,140 @@
+/* Estilo global */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Estilos para la contenedor principal */
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos para el formulario */
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  input.form-control {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  button.btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button.btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Estilos para el mensaje de error */
+  .alert {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+  
+  /* Estilos para la lista de proyectos */
+  .card-container {
+    margin-top: 30px;
+  }
+  
+  .mat-card {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .mat-card-header {
+    background-color: #007bff;
+    color: white;
+    border-radius: 8px 8px 0 0;
+    padding: 10px;
+  }
+  
+  .mat-card-title {
+    font-size: 1.3rem;
+  }
+  
+  .mat-card-subtitle {
+    font-size: 1.1rem;
+    font-weight: 400;
+  }
+  
+  .mat-card-content {
+    padding: 20px;
+  }
+  
+  .mat-card-content p {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  strong {
+    color: #007bff;
+  }
+  
+  button.mat-raised-button {
+    margin: 5px;
+  }
+  
+  .mat-card-actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  
+  .mat-elevation-z4 {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Paginación */
+  mat-paginator {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  /* Mensaje cuando no hay proyectos */
+  .mt-3 {
+    margin-top: 20px;
+    text-align: center;
+    color: #777;
+    font-size: 1.1rem;
+  }
+  

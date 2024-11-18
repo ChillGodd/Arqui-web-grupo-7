@@ -1,0 +1,51 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .title-container {
+    margin-bottom: 20px;
+  }
+  
+  .page-title {
+    font-size: 2rem;
+    color: #4caf50; /* Verde para el título */
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .card-container {
+    margin: 10px 0;
+    width: 80%;
+  }
+  
+  .card {
+    padding: 15px;
+    background-color: #f9f9f9; /* Fondo claro */
+  }
+  
+  mat-card-title {
+    color: #1976d2; /* Azul para el título del card */
+  }
+  
+  mat-card-subtitle {
+    color: #616161; /* Gris para el subtítulo */
+  }
+  
+  mat-card-content p {
+    font-size: 1rem;
+    color: #212121; /* Gris oscuro */
+  }
+  
+  /* Botón con color personalizado */
+  .delete-button {
+    background-color: #f44336; /* Rojo para eliminar */
+    color: white;
+  }
+  
+  .delete-button:hover {
+    background-color: #d32f2f; /* Rojo más oscuro al pasar el mouse */
+  }
+  

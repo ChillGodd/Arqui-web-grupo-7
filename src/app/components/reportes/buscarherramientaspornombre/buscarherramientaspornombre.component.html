@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="title-container">
+      <h1>Buscar Herramientas por Nombre</h1>
+    </div>
+  
+    <div class="search-box">
+      <input
+        type="text"
+        [(ngModel)]="nombre"
+        placeholder="Ingresa el nombre de la herramienta"
+        class="search-input"
+      />
+      <button (click)="buscarHerramientas()" class="search-button">Buscar</button>
+    </div>
+  
+    <table mat-table [dataSource]="herramientas" class="mat-elevation-z8">
+      <ng-container matColumnDef="idHerramienta">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let herramienta"> {{herramienta.idHerramienta}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let herramienta"> {{herramienta.nombre}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="descripcion">
+        <th mat-header-cell *matHeaderCellDef> Descripción </th>
+        <td mat-cell *matCellDef="let herramienta"> {{herramienta.descripcion}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="proyecto">
+        <th mat-header-cell *matHeaderCellDef> Proyecto </th>
+        <td mat-cell *matCellDef="let herramienta"> {{herramienta.proyecto.nombre}} </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>
+  </div>
+  

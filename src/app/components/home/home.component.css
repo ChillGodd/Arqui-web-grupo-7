@@ -1,0 +1,51 @@
+/* home.component.css */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh; /* Altura completa de la pantalla */
+    background-color: #f0f0f0; /* Fondo claro para el contenedor */
+    border-radius: 10px; /* Esquinas redondeadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    padding: 20px;
+  }
+  
+  .image {
+    width: 40%; /* Ajusta el ancho de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+    overflow: hidden; /* Oculta cualquier desbordamiento */
+  }
+  
+  .image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Ajusta la imagen para cubrir el contenedor */
+    border-radius: 10px; /* Esquinas redondeadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  }
+  
+  .text {
+    width: 55%; /* Ajusta el ancho del texto */
+    color: #333; /* Color de texto oscuro */
+    background-color: rgba(46, 37, 178, 0.1); /* Fondo semi-transparente */
+    padding: 20px;
+    border-radius: 10px; /* Esquinas redondeadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    text-align: center; /* Centra el texto */
+  }
+  
+  button {
+    background-color: #2e25b2; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px; /* Esquinas redondeadas */
+    cursor: pointer;
+    transition: background-color 0.3s; /* Transición suave */
+    margin-top: 20px; /* Espaciado superior */
+  }
+  
+  button:hover {
+    background-color: #1d1a8c; /* Color de fondo del botón al pasar el ratón */
+  }
+  

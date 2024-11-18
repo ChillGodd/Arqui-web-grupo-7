@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="title-container">
+        <h1 class="page-title">📬 Lista de Hostings</h1>
+    </div>
+
+    <div *ngFor="let element of dataSource.filteredData" class="message-card-container">
+        <mat-card class="mat-elevation-z4 message-card">
+            <mat-card-header>
+                <mat-card-title>Hosting ID: {{ element.idHosting }}</mat-card-title>
+                <mat-card-subtitle>Proyecto: {{ element.proyecto.nombre }}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <p><strong>Tipo:</strong> {{ element.tipo }}</p>
+                <p><strong>URL:</strong> {{ element.url || 'No disponible' }}</p>
+                <p><strong>Fecha de Adquisición:</strong> {{ element.fechaAdquisicion | date: 'dd/MM/yyyy' }}</p>
+                <p><strong>Fecha de Expiración:</strong> {{ element.fechaExpiracion | date: 'dd/MM/yyyy' }}</p>
+            </mat-card-content>
+            <mat-card-actions align="end">
+                <button mat-stroked-button color="warn" (click)="eliminar(element.idHosting)">
+                    <mat-icon>delete</mat-icon> Eliminar
+                </button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+
+    <mat-paginator [pageSizeOptions]="[4, 7, 10]" showFirstLastButtons></mat-paginator>
+</div>

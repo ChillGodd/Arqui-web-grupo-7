@@ -1,0 +1,64 @@
+<div class="container">
+    <h1>{{ edicion ? 'Editar Proyecto' : 'Crear Proyecto' }}</h1>
+  
+    <form [formGroup]="form" (ngSubmit)="registrar()">
+      <mat-form-field appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="nombre" />
+        <mat-error *ngIf="form.controls['nombre'].hasError('required')">El nombre es obligatorio.</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Descripción</mat-label>
+        <input matInput formControlName="descripcion" />
+        <mat-error *ngIf="form.controls['descripcion'].hasError('required')">La descripción es obligatoria.</mat-error>
+      </mat-form-field>
+  
+    
+        
+        <mat-form-field appearance="fill">
+          <mat-label>Estado</mat-label>
+          <mat-select formControlName="estado">
+            <mat-option [value]="true">Completado</mat-option>
+            <mat-option [value]="false">Pendiente</mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Fecha de Inicio</mat-label>
+        <input matInput [matDatepicker]="picker1" formControlName="fechaInicio" />
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+        <mat-error *ngIf="form.controls['fechaInicio'].hasError('required')">La fecha de inicio es obligatoria.</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Fecha de Término</mat-label>
+        <input matInput [matDatepicker]="picker2" formControlName="fechaTermina" />
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+        <mat-error *ngIf="form.controls['fechaTermina'].hasError('required')">La fecha de término es obligatoria.</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Presupuesto</mat-label>
+        <input matInput formControlName="presupuesto" type="number" />
+        <mat-error *ngIf="form.controls['presupuesto'].hasError('required')">El presupuesto es obligatorio.</mat-error>
+      </mat-form-field>
+  
+
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Usuario</mat-label>
+        <mat-select formControlName="user" required>
+          <mat-option *ngFor="let user of users" [value]="user.idUser">
+            {{ user.nombreUser}} 
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('user')?.invalid && form.get('user')?.touched">Campo requerido</mat-error>
+      </mat-form-field>
+      
+  
+      <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">{{ edicion ? 'Actualizar' : 'Crear' }}</button>
+    </form>
+  </div>

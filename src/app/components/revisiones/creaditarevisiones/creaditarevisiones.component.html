@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="title-container">
+      <h1>{{ edicion ? 'Editar Revisión' : 'Crear Revisión' }}</h1>
+    </div>
+  
+    <form [formGroup]="form" (ngSubmit)="registrar()">
+      <mat-form-field appearance="fill">
+        <mat-label>Comentario</mat-label>
+        <textarea matInput formControlName="Comentario" placeholder="Comentario de la Revisión"></textarea>
+        <mat-error *ngIf="form.get('Comentario')?.invalid && form.get('Comentario')?.touched">Campo requerido</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Puntuación</mat-label>
+        <input matInput type="number" formControlName="Puntuacion" placeholder="Puntuación (0-5)">
+        <mat-error *ngIf="form.get('Puntuacion')?.invalid && form.get('Puntuacion')?.touched">
+          La puntuación debe estar entre 0 y 5
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Fecha</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="Fecha" placeholder="Fecha">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="form.get('Fecha')?.invalid && form.get('Fecha')?.touched">Campo requerido</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Proyecto</mat-label>
+        <mat-select formControlName="proyect">
+          <mat-option *ngFor="let proyecto of proyectos" [value]="proyecto.idProyecto">
+            {{ proyecto.nombre }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('proyect')?.invalid && form.get('proyect')?.touched">Campo requerido</mat-error>
+      </mat-form-field>
+  
+      <div class="actions">
+        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+          {{ edicion ? 'Actualizar' : 'Registrar' }}
+        </button>
+        <button mat-raised-button color="accent" routerLink="/revisiones">Cancelar</button>
+      </div>
+    </form>
+  </div>
+  

@@ -1,0 +1,30 @@
+.container {
+  padding: 20px;
+}
+
+h2, h3 {
+  color: #2c3e50;
+}
+
+button {
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.project-details {
+  font-size: 1.2em;
+  margin-top: 20px;
+}
+
+p {
+  margin-bottom: 10px;
+}

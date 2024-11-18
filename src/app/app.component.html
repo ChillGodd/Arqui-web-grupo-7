@@ -1,1 +1,130 @@
+<mat-toolbar class="custom-toolbar" *ngIf="verificar()">
+  <div class="left-menu">
+    <!-- Botón Home -->
+    <button mat-button [routerLink]="['/homes']" style="color: white">
+      <mat-icon>home</mat-icon>Home
+    </button>
+
+    <!-- Botón del Menú General (para ADMIN, CLIENTE y PROGRAMADOR) -->
+    <button
+      mat-button
+      [matMenuTriggerFor]="menuGeneral"
+      style="color: white"
+      *ngIf="isAdmin || isCliente || isProgramador"
+    >
+      <mat-icon>menu</mat-icon>Menú General
+    </button>
+
+    <!-- Botón Reportes (para ADMIN y PROGRAMADOR con restricciones) -->
+    <button
+      mat-button
+      [matMenuTriggerFor]="menuReportes"
+      style="color: white"
+      *ngIf="isAdmin || isProgramador"
+    >
+      <mat-icon>view_array</mat-icon>Reportes
+    </button>
+
+    <!-- Botón Menu General (solo visible para Programador) -->
+    <button mat-button [matMenuTriggerFor]="menuGeneral" style="color: white" *ngIf="isProgramador()">
+    </button>
+  </div>
+
+  <div class="right-menu">
+    <!-- Botón Usuario -->
+    <button mat-button [matMenuTriggerFor]="menuSalir" aria-label="Usuario" class="user-button" style="color: white">
+      <mat-icon>person</mat-icon>{{ username }}
+    </button>
+  </div>
+  </mat-toolbar>
+
+<!-- Menú General -->
+<mat-menu #menuGeneral="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="herramientasMenu">Herramientas</button>
+  <button mat-menu-item [matMenuTriggerFor]="hostingMenu">Hosting</button>
+  <button mat-menu-item [matMenuTriggerFor]="mensajesMenu">Mensajes</button>
+  <button mat-menu-item [matMenuTriggerFor]="notificacionesMenu">Notificaciones</button>
+  <button mat-menu-item [matMenuTriggerFor]="proyectosMenu">Proyectos</button>
+  <button mat-menu-item [matMenuTriggerFor]="revisionesMenu">Revisiones</button>
+  <button mat-menu-item [matMenuTriggerFor]="rolesMenu">Roles</button>
+  <button mat-menu-item [matMenuTriggerFor]="tareasMenu">Tareas</button>
+  <button mat-menu-item [matMenuTriggerFor]="usersMenu">Usuarios</button>
+</mat-menu>
+
+<!-- Menús Individuales -->
+<mat-menu #herramientasMenu="matMenu">
+  <button mat-menu-item [routerLink]="['/herramientas']">Listar Herramientas</button>
+  <button mat-menu-item [routerLink]="['/herramientas/nuevo']">Registrar Herramienta</button>
+</mat-menu>
+
+<mat-menu #hostingMenu="matMenu">
+  <button mat-menu-item [routerLink]="['/hosting']">Listar Hosting</button>
+  <button mat-menu-item [routerLink]="['/hosting/nuevo']">Registrar Hosting</button>
+</mat-menu>
+
+<mat-menu #mensajesMenu="matMenu">
+  <button mat-menu-item [routerLink]="['/mensajes']">Listar Mensajes</button>
+  <button mat-menu-item [routerLink]="['/mensajes/nuevo']">Registrar Mensaje</button>
+</mat-menu>
+
+<mat-menu #notificacionesMenu="matMenu">
+  <button mat-menu-item [routerLink]="['/notificaciones']">Listar Notificaciones</button>
+  <button mat-menu-item [routerLink]="['/notificaciones/nuevo']">Registrar Notificación</button>
+</mat-menu>
+
+<mat-menu #proyectosMenu="matMenu">
+  <button mat-menu-item [routerLink]="['/proyectos']">Listar Proyectos</button>
+  <button mat-menu-item [routerLink]="['/proyectos/nuevo']">Registrar Proyecto</button>
+</mat-menu>
+
+<mat-menu #revisionesMenu="matMenu">
+  <button mat-menu-item [routerLink]="['/revisiones']">Listar Revisiones</button>
+  <button mat-menu-item [routerLink]="['/revisiones/nuevo']">Registrar Revisión</button>
+</mat-menu>
+
+<mat-menu #rolesMenu="matMenu">
+  <button mat-menu-item [routerLink]="['/roles']">Listar Roles</button>
+  <button mat-menu-item [routerLink]="['/roles/nuevo']">Registrar Rol</button>
+</mat-menu>
+
+<mat-menu #tareasMenu="matMenu">
+  <button mat-menu-item [routerLink]="['/tareas']">Listar Tareas</button>
+  <button mat-menu-item [routerLink]="['/tareas/nuevo']">Registrar Tarea</button>
+</mat-menu>
+
+<mat-menu #usersMenu="matMenu">
+  <button mat-menu-item [routerLink]="['/user']">Listar Usuarios</button>
+  <button mat-menu-item [routerLink]="['/user/nuevo']">Registrar Usuario</button>
+</mat-menu>
+
+<!-- Menú de Reportes -->
+<mat-menu #menuReportes="matMenu">
+  <!-- Reportes visibles solo para ADMIN -->
+  <button mat-menu-item [routerLink]="['/reportes/buscaruserpornombre']" *ngIf="isAdmin()">Buscar Usuario por Nombre</button>
+  <button mat-menu-item [routerLink]="['/reportes/listartareascumplidas']" *ngIf="isAdmin()">Cantidad de tareas cumplidas y pendientes</button>
+  <button mat-menu-item [routerLink]="['/reportes/buscarproyectospornombrefechas']" *ngIf="isAdmin()">Buscar Proyecto por Rango de Fechas</button>
+  <button mat-menu-item [routerLink]="['/reportes/mensajesleidos']" *ngIf="isAdmin()">Mostrar Mensajes Leídos</button>
+  <button mat-menu-item [routerLink]="['/reportes/tipodehosting']" *ngIf="isAdmin()">Mostrar y Filtrar por Tipo de Hosting</button>
+  <button mat-menu-item [routerLink]="['/reportes/notificacionesportipo']" *ngIf="isAdmin()">Buscar por Tipo de Notificación</button>
+  <button mat-menu-item [routerLink]="['/reportes/buscarrolespornombre']" *ngIf="isAdmin()">Buscar rol por nombre</button>
+
+  <!-- Reportes visibles para ADMIN y PROGRAMADOR -->
+  <button mat-menu-item [routerLink]="['/reportes/tareaspendientes']" *ngIf="isAdmin() || isProgramador()">Listar Tareas Pendientes</button>
+  <button mat-menu-item [routerLink]="['/reportes/buscarherramientaspornombre']" *ngIf="isAdmin() || isProgramador()">Buscar Herramienta por Nombre</button>
+
+  <!-- Reportes visibles solo para Programador -->
+  <button mat-menu-item [routerLink]="['/reportes/proyectomascostoso']" *ngIf="isProgramador()">Proyecto con Mayor Costo</button>
+</mat-menu>
+
+<!-- Menú Usuario -->
+<mat-menu #menuSalir="matMenu">
+  <button mat-menu-item routerLink="/login" (click)="cerrar()" class="custom-menu-item">
+    <mat-icon>logout</mat-icon>
+    <span>Cerrar sesión</span>
+  </button>
+  <button mat-menu-item class="custom-menu-item">
+    Rol:<span>{{ role }}</span>
+  </button>
+</mat-menu>
+
 <router-outlet></router-outlet>

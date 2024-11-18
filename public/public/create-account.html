@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./assets/styles/style-login.css">
+    <title>From Zero</title>
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+</style>
+<body>
+    <div class="login">
+        <div class="form-container">
+            <img src="./assets/images/logo.png" alt="logo" class="logo">
+            <form action="./login.html" class="form">
+                <input type="text" id="email" placeholder="Correo Electrónico" class="input input-email">
+                <input type="text" id="username" placeholder="Nombre de Usuario" class="input input-username">
+                <input type="password" id="password" placeholder="Contraseña" class="input input-password">
+                <select id="userType" class="input input-userType">
+                    <option value="developer">Desarrollador</option>
+                    <option value="user">Usuario</option>
+                </select>
+                <input type="submit" value="Crear Cuenta" class="primary-button login-button">
+                <a href="./login.html">Iniciar Session</a>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

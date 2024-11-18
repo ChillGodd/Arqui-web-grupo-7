@@ -1,0 +1,48 @@
+<div class="search-container">
+  <mat-form-field appearance="outline">
+    <mat-label>Filtrar por tipo de notificación</mat-label>
+    <input matInput [(ngModel)]="tipoFiltro" (keyup)="applyFilter()" placeholder="Ingrese el tipo de notificación" />
+  </mat-form-field>
+</div>
+
+<div class="tabla-container">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!-- ID Notificación Column -->
+    <ng-container matColumnDef="idNotificacion">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let notificacion"> {{ notificacion.idNotificacion }} </td>
+    </ng-container>
+
+    <!-- Fecha Notificación Column -->
+    <ng-container matColumnDef="fechaNotificacion">
+      <th mat-header-cell *matHeaderCellDef> Fecha </th>
+      <td mat-cell *matCellDef="let notificacion"> {{ notificacion.fechaNotificacion | date:'short' }} </td>
+    </ng-container>
+
+    <!-- Mensaje Column -->
+    <ng-container matColumnDef="mensaje">
+      <th mat-header-cell *matHeaderCellDef> Mensaje </th>
+      <td mat-cell *matCellDef="let notificacion"> {{ notificacion.mensaje }} </td>
+    </ng-container>
+
+    <!-- Tipo Notificación Column -->
+    <ng-container matColumnDef="tipoNotificacion">
+      <th mat-header-cell *matHeaderCellDef> Tipo </th>
+      <td mat-cell *matCellDef="let notificacion"> {{ notificacion.tipoNotificacion }} </td>
+    </ng-container>
+
+    <!-- Usuario Column -->
+    <ng-container matColumnDef="user">
+      <th mat-header-cell *matHeaderCellDef> Usuario </th>
+      <td mat-cell *matCellDef="let notificacion"> {{ notificacion.user.nombreUser }} </td>
+    </ng-container>
+
+    <!-- Header and Row Definitions -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <!-- Paginator -->
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Elementos por página"></mat-paginator>
+</div>

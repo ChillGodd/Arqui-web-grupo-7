@@ -1,2 +1,18 @@
-/* src/app/app.component.css */
-/* Estilos globales para la aplicación */
+.custom-toolbar {
+  background-color: #6a19eb; 
+  color: white; 
+}
+
+.custom-menu-item {   
+  color: ce940c; 
+  &:hover {
+    color: #6a19eb; 
+  }
+}
+.left-menu {
+  display: flex; /* Permite alinear los botones horizontalmente */
+}
+
+.right-menu {
+  margin-left: auto; /* Empuja el menú de usuarios a la derecha */
+}

@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="title-container">
+      <h1>{{ edicion ? 'Editar Tarea' : 'Crear Tarea' }}</h1>
+    </div>
+  
+    <form [formGroup]="form" (ngSubmit)="registrar()">
+      <mat-form-field appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="nombre" placeholder="Nombre de la Tarea">
+        <mat-error *ngIf="form.get('nombre')?.invalid">Campo requerido</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Descripción</mat-label>
+        <textarea matInput formControlName="descripcion" placeholder="Descripción de la Tarea"></textarea>
+        <mat-error *ngIf="form.get('descripcion')?.invalid">Campo requerido</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Estado</mat-label>
+        <mat-select formControlName="estado">
+          <mat-option [value]="true">Completado</mat-option>
+          <mat-option [value]="false">Pendiente</mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('estado')?.invalid">Campo requerido</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Fecha Límite</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="fechaLimite" placeholder="Fecha Límite">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="form.get('fechaLimite')?.invalid">Campo requerido</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Horas Empleadas</mat-label>
+        <input matInput type="number" formControlName="horasEmpleadas" placeholder="Horas Empleadas">
+        <mat-error *ngIf="form.get('horasEmpleadas')?.invalid">Campo requerido</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Proyecto</mat-label>
+        <mat-select formControlName="proyect">
+          <mat-option *ngFor="let proyecto of proyectos" [value]="proyecto.idProyecto">
+            {{ proyecto.nombre }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('proyect')?.invalid">Campo requerido</mat-error>
+      </mat-form-field>
+  
+      <div class="actions">
+        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+          {{ edicion ? 'Actualizar' : 'Registrar' }}
+        </button>
+        <button mat-raised-button color="accent" routerLink="/tareas">Cancelar</button>
+      </div>
+    </form>
+  </div>

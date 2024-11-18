@@ -1,0 +1,19 @@
+<div class="title-container">
+    <div style="text-align: center" class="title">
+      <h1>Cantidad de tareas cumplidas y pendientes</h1>
+    </div>
+    
+    <div style="text-align: center" class="chart-container">
+      <!-- Gráfico Circular -->
+      <canvas
+        baseChart
+        [datasets]="[{ data: pieChartData, label: 'Tareas' }]" 
+        [labels]="pieChartLabels"
+        [options]="pieChartOptions"
+        [legend]="pieChartLegend"
+        [type]="pieChartType"
+      >
+      </canvas>
+    </div>
+  </div>
+  

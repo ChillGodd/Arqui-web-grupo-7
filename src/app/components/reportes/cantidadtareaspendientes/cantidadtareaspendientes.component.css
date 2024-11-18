@@ -1,0 +1,45 @@
+/* cantidadtareaspendientes.component.css */
+
+/* Estilos para el botón */
+button {
+    background-color: #007bff; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Sin bordes */
+    padding: 10px 20px; /* Espaciado interno */
+    text-align: center; /* Alineación del texto */
+    text-decoration: none; /* Sin subrayado */
+    display: inline-block; /* Display en línea */
+    font-size: 16px; /* Tamaño de fuente */
+    margin: 10px 0; /* Margen */
+    cursor: pointer; /* Cursor de puntero */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s; /* Transición al pasar el cursor */
+  }
+  
+  button:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el cursor */
+  }
+  
+  /* Estilos para la lista de tareas */
+  ul {
+    list-style-type: none; /* Sin estilo de lista */
+    padding: 0; /* Sin padding */
+  }
+  
+  li {
+    background-color: #f8f9fa; /* Color de fondo */
+    margin: 10px 0; /* Margen */
+    padding: 10px; /* Padding */
+    border: 1px solid #dee2e6; /* Bordes */
+    border-radius: 5px; /* Bordes redondeados */
+  }
+  
+  li strong {
+    color: #343a40; /* Color del texto fuerte */
+  }
+  
+  /* Estilos para el encabezado de la lista */
+  h3 {
+    color: #007bff; /* Color del encabezado */
+  }
+  

@@ -1,0 +1,78 @@
+/* General page styles */
+.page-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #1976d2; /* Color azul para el título */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Main container styles: Center content vertically and horizontally */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Card container to ensure proper spacing */
+.card-container {
+    margin: 20px 0;
+    width: 100%;
+    max-width: 800px; /* Control max width of the card */
+}
+
+/* mat-card styling */
+mat-card {
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+/* Card Header styles */
+mat-card-header {
+    background-color: #f5f5f5;
+    padding: 16px;
+    font-size: 1.1rem;
+    color: #1976d2;
+}
+
+/* Card content styles */
+mat-card-content p {
+    font-size: 1rem;
+    color: #424242;
+    margin: 8px 0;
+}
+
+/* Button and icon styling */
+button mat-icon {
+    margin-right: 5px;
+}
+
+button {
+    font-size: 0.9rem;
+    text-transform: none;
+}
+
+button:hover {
+    transform: scale(1.05);
+    transition: all 0.2s ease;
+}
+
+button[color="primary"] {
+    background-color: #1976d2;
+    color: white;
+}
+
+button[color="warn"] {
+    background-color: #f44336;
+    color: white;
+}
+
+/* Styling for paginator */
+mat-paginator {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}

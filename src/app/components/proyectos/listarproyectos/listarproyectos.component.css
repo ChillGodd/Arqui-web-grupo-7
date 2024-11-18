@@ -1,0 +1,53 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .page-title {
+    font-size: 2.5rem;
+    color: #4caf50; /* Verde para el título principal */
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .card-container {
+    margin: 10px 0;
+    width: 80%;
+  }
+  
+  .card {
+    width: 100%;
+    padding: 15px;
+  }
+  
+  .project-title {
+    font-size: 1.2rem;
+    color: #1976d2; /* Azul para el título del proyecto */
+  }
+  
+  .project-subtitle {
+    color: #616161; /* Gris para el subtítulo */
+  }
+  
+  .label-text {
+    color: #0d47a1; /* Azul oscuro para las etiquetas */
+  }
+  
+  mat-card-content p {
+    font-size: 1rem;
+    color: #212121; /* Gris oscuro para el texto */
+  }
+  
+  mat-card-actions button {
+    font-weight: bold;
+  }
+  button {
+    margin-left: 10px;
+    font-size: 0.9rem;
+}
+.right-align {
+  margin-left: auto; /* Empuja el botón hacia la derecha */
+}
+  

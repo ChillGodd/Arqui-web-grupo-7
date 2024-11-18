@@ -1,0 +1,41 @@
+<div class="container">
+    <h1>{{ edicion ? 'Editar Mensaje' : 'Crear Mensaje' }}</h1>
+    
+    <form [formGroup]="form" (ngSubmit)="registrar()">
+
+      <mat-form-field appearance="fill">
+        <mat-label>contenido</mat-label>
+        <input matInput formControlName="contenido" />
+        <mat-error *ngIf="form.controls['contenido'].hasError('required')">El contenido es obligatorio.</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>fecha</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="fecha" />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="form.controls['fecha'].hasError('required')">La fecha es obligatoria.</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>leído</mat-label>
+        <mat-select formControlName="leido">
+          <mat-option [value]="true">Sí</mat-option>
+          <mat-option [value]="false">No</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Usuario</mat-label>
+        <mat-select formControlName="user" required>
+          <mat-option *ngFor="let user of users" [value]="user.idUser">
+            {{ user.nombreUser}} <!--ACA PODRIA SER idUser-->
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('user')?.invalid && form.get('user')?.touched">Campo requerido</mat-error>
+      </mat-form-field>
+    
+  
+      <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">{{ edicion ? 'Actualizar' : 'Crear' }}</button>
+    </form>
+  </div>

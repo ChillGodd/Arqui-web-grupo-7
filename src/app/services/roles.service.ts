@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Roles } from '../models/roles.model';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 const base_url = environment.base;
 
@@ -32,5 +32,9 @@ export class RolesService {
   }
   listId(id:number){
     return this.http.get<Roles>(`${this.url}/${id}`);
+  }
+  buscarPorNombre(nombre: string): Observable<Roles[]> {
+    const params = new HttpParams().set('n', nombre);
+    return this.http.get<Roles[]>(`${this.url}/busquedas`, { params });
   }
 }

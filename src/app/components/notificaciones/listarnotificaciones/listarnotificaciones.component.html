@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="title-container">
+      <h1 class="page-title">📬 Lista de Notificaciones</h1>
+  </div>
+
+  <div *ngFor="let element of dataSource.data" class="card-container">
+      <mat-card class="mat-elevation-z4 card">
+          <mat-card-header>
+              <mat-card-title>Notificación ID: {{ element.idNotificacion }}</mat-card-title>
+              <mat-card-subtitle>Nombre del usuario: {{ element.user.nombreUser }}</mat-card-subtitle>
+          </mat-card-header>
+
+          <mat-card-content>
+              <p><strong>Mensaje:</strong> {{ element.mensaje }}</p>
+              <p><strong>Fecha de Notificación:</strong> {{ element.fechaNotificacion | date: 'shortDate' }}</p>
+              <p><strong>Tipo:</strong> {{ element.tipoNotificacion }}</p>
+          </mat-card-content>
+
+          <mat-card-actions align="end">
+              <button mat-stroked-button color="warn" (click)="eliminar(element.idNotificacion)">
+                  <mat-icon>delete</mat-icon> Eliminar
+              </button>
+          </mat-card-actions>
+      </mat-card>
+  </div>
+
+  <mat-paginator [pageSizeOptions]="[4, 7, 9]" showFirstLastButtons></mat-paginator>
+</div>

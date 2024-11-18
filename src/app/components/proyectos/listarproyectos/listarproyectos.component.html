@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="title-container">
+    <h1 class="page-title">Lista de Proyectos</h1>
+  </div>
+
+  <div *ngFor="let element of dataSource.data" class="card-container">
+    <mat-card class="mat-elevation-z4 card">
+      <mat-card-header>
+        <mat-card-title>ID Proyecto: {{ element.idProyecto }}</mat-card-title>
+        <mat-card-subtitle>Nombre del proyecto: {{ element.nombre }}</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <p><strong>Descripción:</strong> {{ element.descripcion }}</p>
+        <p><strong>Presupuesto:</strong> {{ element.presupuesto | currency }}</p>
+        <p><strong>Fecha de Inicio:</strong> {{ element.fechaInicio | date }}</p>
+        <p><strong>Estado:</strong> {{ element.estado ? '✅Completado ' : '❌ Pendiente' }}</p>
+        <p><strong>Fecha de Fin:</strong> {{ element.fechaFin | date }}</p>
+      </mat-card-content>
+
+     
+      <mat-card-actions> <!-- Aquí comienza la sección de acciones -->
+        <!-- Botón para ver tareas -->
+        <button mat-raised-button color="primary" (click)="cargarTareasDeProyecto(element.idProyecto)">
+          <mat-icon>list</mat-icon> Ver Tareas
+        </button>
+
+        <!-- Botón para ir a Revisiones -->
+        <button mat-raised-button color="accent" (click)="verRevisiones(element.idProyecto)">
+          <mat-icon>rate_review</mat-icon> Ver Revisiones
+        </button>
+        <div class="right-align">
+          <button mat-raised-button color="warn" (click)="eliminar(element.idProyecto)">
+            <mat-icon>delete</mat-icon> Eliminar
+          </button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <mat-paginator [pageSizeOptions]="[3, 6, 9]" showFirstLastButtons></mat-paginator>
+</div>

@@ -1,0 +1,117 @@
+:root {
+    --white: #FFFFFF;
+    --black: #000000;   
+    --btn-color-blue:#3554BC;
+    --hover-sky-blue: #48E6EA;
+    --very-light-blue: #DAF0FD;
+    --very-light-purple: #D9C9ED;
+    --very-light-pinkl:#d8d8d8;
+    --very-ligh-gray:#333333;
+    --sm: 14px;
+    --md: 16px;
+    --lg: 18px;
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Open Sans'
+}
+.login{
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+.form-container{
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    width: 450px;
+    padding: 70px;
+    border: solid 1px var(--black);
+    border-radius: 40px;
+}
+.logo{
+    width: 160px;
+    margin-bottom: 48px;
+    justify-self: center;
+}
+.label{
+    font-size: var(--sm);
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+.input{
+    border: solid 1px #333333;
+    border-radius: 8px;
+    height: 37px;
+    font-size: var(--md);
+    padding: 8px;
+    margin-bottom: 12px;
+}
+.input-email{
+    margin-bottom: 22px;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+}
+.form a{
+    color: #38B397;
+    text-decoration: none;
+    text-align: center;
+    margin-bottom: 52px;
+    font-size: var(--sm);
+    font-family: 'Open Sans';
+    font-weight: bold;
+    text-decoration-line:underline;
+}
+.input-userType{
+    width: 150px;
+    align-self: center;
+}
+.primary-button{
+    background-color: var(--btn-color-blue);
+    border-radius: 8px;
+    border: none;
+    color: var(--white);
+    height: 55px;
+    width: 64%;
+    align-self: center;
+    cursor: pointer;
+    font-family: 'OPen Sans';
+    font-size: 28px;
+    font-weight: bold;
+}
+.login-button{
+    margin-top: 14px;
+    margin-bottom: 30px;
+}
+.secondary-button{
+    background-color: var(--white);
+    border-radius: 8px;
+    border: 1px solid #38B397;
+    color: #38B397;
+    height: 45px;
+    width: 100%;
+    cursor: pointer;
+    font-size: var(--md);
+    font-weight: bold;
+}
+@media (max-width: 640px){
+    .logo{
+        display: block;
+    }
+    .secondary-button{
+        position: absolute;
+        bottom: 0;
+        width: 340px;
+        margin-bottom: 20px;
+    }
+    .form-container{
+        border: none;
+        border-radius: 0;
+    }
+}

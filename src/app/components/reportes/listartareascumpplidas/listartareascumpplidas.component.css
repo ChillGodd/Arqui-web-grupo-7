@@ -1,0 +1,5 @@
+.chart-container {
+    width: 70%; /* Ajusta el porcentaje según el tamaño que quieras */
+    max-width: 400px; /* Establece un ancho máximo para el gráfico */
+    margin: 0 auto; /* Centra el gráfico */
+  }

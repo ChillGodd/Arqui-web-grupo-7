@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="title-container">
+      <h1>Lista de Revisiones por Proyecto</h1>
+    </div>
+  
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!-- Definición de columnas de la tabla -->
+      <ng-container matColumnDef="idRevision">
+        <th mat-header-cell *matHeaderCellDef> ID de Revisión </th>
+        <td mat-cell *matCellDef="let revision"> {{ revision.idRevision }} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="comentario">
+        <th mat-header-cell *matHeaderCellDef> Comentario </th>
+        <td mat-cell *matCellDef="let revision"> {{ revision.comentario }} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="puntuacion">
+        <th mat-header-cell *matHeaderCellDef> Puntuación </th>
+        <td mat-cell *matCellDef="let revision"> {{ revision.puntuacion }} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="fecha">
+        <th mat-header-cell *matHeaderCellDef> Fecha </th>
+        <td mat-cell *matCellDef="let revision">
+          {{ revision.fecha | date: 'dd/MM/yyyy' }}
+        </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="proyecto">
+        <th mat-header-cell *matHeaderCellDef> Proyecto </th>
+        <td mat-cell *matCellDef="let revision"> {{ revision.proyecto.nombre }} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef> Acciones </th>
+        <td mat-cell *matCellDef="let revision">
+          <button mat-icon-button (click)="eliminar(revision.idRevision)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>
+  </div>
+  

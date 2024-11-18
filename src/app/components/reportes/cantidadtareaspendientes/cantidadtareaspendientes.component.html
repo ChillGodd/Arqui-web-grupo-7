@@ -1,0 +1,20 @@
+<div>
+    <button (click)="obtenerTareasPendientes()">Mostrar Tareas Pendientes</button>
+    <p>Total de Tareas Pendientes: {{ totalPendientes }}</p>
+    
+    <div *ngIf="tareasPendientes.length > 0">
+      <h3>Tareas Pendientes</h3>
+      <ul>
+        <li *ngFor="let tarea of tareasPendientes">
+          <strong>Nombre:</strong> {{ tarea?.nombre || 'Nombre no disponible' }}<br>
+          <strong>Descripción:</strong> {{ tarea?.descripcion || 'Descripción no disponible' }}<br>
+          <strong>Fecha Límite:</strong> {{ tarea?.fechaLimite | date }}<br>
+          <strong>Proyecto:</strong> {{ tarea?.proyecto?.nombre || 'Proyecto no disponible' }}
+        </li>
+      </ul>
+    </div>
+  
+    <div *ngIf="tareasPendientes.length === 0">
+      <p>No hay tareas pendientes.</p>
+    </div>
+  </div>

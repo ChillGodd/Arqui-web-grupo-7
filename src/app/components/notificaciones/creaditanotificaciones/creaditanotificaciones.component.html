@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="title-container">
+      <h1>{{ edicion ? 'Editar Notificación' : 'Crear Notificación' }}</h1>
+    </div>
+  
+    <form [formGroup]="form" (ngSubmit)="registrar()">
+      <mat-form-field appearance="fill">
+        <mat-label>Mensaje</mat-label>
+        <textarea matInput formControlName="mensaje" placeholder="Mensaje de la Notificación" required></textarea>
+        <mat-error *ngIf="form.get('mensaje')?.invalid && form.get('mensaje')?.touched">Campo requerido</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Tipo de Notificación</mat-label>
+        <input matInput formControlName="tipoNotificacion" placeholder="Tipo de Notificación" required>
+        <mat-error *ngIf="form.get('tipoNotificacion')?.invalid && form.get('tipoNotificacion')?.touched">Campo requerido</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Fecha de Notificación</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="fechaNotificacion" placeholder="Fecha" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="form.get('fechaNotificacion')?.invalid && form.get('fechaNotificacion')?.touched">Campo requerido</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Usuario</mat-label>
+        <mat-select formControlName="user" required>
+          <mat-option *ngFor="let user of users" [value]="user.idUser">
+            {{ user.nombreUser}} <!--ACA PODRIA SER idUser-->
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('user')?.invalid && form.get('user')?.touched">Campo requerido</mat-error>
+      </mat-form-field>
+  
+      <div class="actions">
+        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+          {{ edicion ? 'Actualizar' : 'Registrar' }}
+        </button>
+        <button mat-raised-button color="accent" routerLink="/notificaciones">Cancelar</button>
+      </div>
+    </form>
+  </div>
+  
