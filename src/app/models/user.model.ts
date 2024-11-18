@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Roles } from "./roles.model";
 
 export class User {
@@ -8,3 +9,11 @@ export class User {
   enabled:boolean=false;     
   rol: Roles = new Roles();         
 }
+=======
+export class User {
+    idRol: number = 0;
+    nombre: string = '';
+    descripcion: string = '';
+  }
+  
+>>>>>>> 8018b2f14df1fdbfc51183bbbc7b97463961555a

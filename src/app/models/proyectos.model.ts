@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { User } from './user.model';
 
 export class Proyecto {
@@ -10,3 +11,11 @@ export class Proyecto {
   presupuesto: number = 0;          
   user: User = new User();               
 }
+=======
+export class Proyectos {
+    idProyecto: number = 0;
+    nombre: string = '';
+    descripcion: string = '';
+    
+  }
+>>>>>>> 8018b2f14df1fdbfc51183bbbc7b97463961555a

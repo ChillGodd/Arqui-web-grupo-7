@@ -4,6 +4,11 @@ import { Mensajes } from '../models/mensajes.model';
 import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 8018b2f14df1fdbfc51183bbbc7b97463961555a
 const base_url = environment.base;
 @Injectable({
   providedIn: 'root'
@@ -36,4 +41,8 @@ export class MensajesService {
   update(mensajes: Mensajes, id: number){
     return this.http.put(`${this.url}/${id}`, mensajes);
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 8018b2f14df1fdbfc51183bbbc7b97463961555a

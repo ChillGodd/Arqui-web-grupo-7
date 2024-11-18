@@ -13,6 +13,7 @@
         <input matInput formControlName="descripcion" />
         <mat-error *ngIf="form.controls['descripcion'].hasError('required')">La descripción es obligatoria.</mat-error>
       </mat-form-field>
+<<<<<<< HEAD
       
       
   
@@ -24,8 +25,22 @@
           </mat-option>
         </mat-select>
         <mat-error *ngIf="form.controls['proyect'].hasError('required')"> Selecciona un proyecto.</mat-error>
+=======
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Proyecto</mat-label>
+        <mat-select formControlName="proyecto">
+          <mat-option *ngFor="let proyecto of proyectos" [value]="proyecto">{{ proyecto.nombre }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.controls['proyecto'].hasError('required')">Selecciona un proyecto.</mat-error>
+>>>>>>> 8018b2f14df1fdbfc51183bbbc7b97463961555a
       </mat-form-field>
   
       <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">{{ edicion ? 'Actualizar' : 'Crear' }}</button>
     </form>
+<<<<<<< HEAD
   </div>
+=======
+  </div>
+  
+>>>>>>> 8018b2f14df1fdbfc51183bbbc7b97463961555a

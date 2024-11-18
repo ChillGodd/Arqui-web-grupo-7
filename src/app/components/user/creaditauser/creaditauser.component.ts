@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import {FormBuilder,FormGroup,Validators,ReactiveFormsModule,
@@ -14,10 +15,14 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { Roles } from '../../../models/roles.model';
 import { RolesService } from '../../../services/roles.service';
+=======
+import { Component } from '@angular/core';
+>>>>>>> 8018b2f14df1fdbfc51183bbbc7b97463961555a
 
 @Component({
   selector: 'app-creaditauser',
   standalone: true,
+<<<<<<< HEAD
   imports: [MatButtonModule,MatSelectModule,MatFormFieldModule,CommonModule,NgIf,MatDatepickerModule,
     MatNativeDateModule,ReactiveFormsModule,MatInputModule,],
   templateUrl: './creaditauser.component.html',
@@ -104,3 +109,12 @@ export class CreaditauserComponent implements OnInit {
     }
   }
 }
+=======
+  imports: [],
+  templateUrl: './creaditauser.component.html',
+  styleUrl: './creaditauser.component.css'
+})
+export class CreaditauserComponent {
+
+}
+>>>>>>> 8018b2f14df1fdbfc51183bbbc7b97463961555a

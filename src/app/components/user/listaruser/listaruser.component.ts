@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
@@ -7,10 +8,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { CommonModule, NgIf } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
+=======
+import { Component } from '@angular/core';
+>>>>>>> 8018b2f14df1fdbfc51183bbbc7b97463961555a
 
 @Component({
   selector: 'app-listaruser',
   standalone: true,
+<<<<<<< HEAD
   imports: [MatTableModule, MatIconModule, RouterModule, MatPaginatorModule,CommonModule, NgIf,MatFormFieldModule],
   templateUrl: './listaruser.component.html',
   styleUrls: ['./listaruser.component.css']
@@ -46,4 +51,12 @@ export class ListaruserComponent implements OnInit, AfterViewInit {
       });
     }
 }
+=======
+  imports: [],
+  templateUrl: './listaruser.component.html',
+  styleUrl: './listaruser.component.css'
+})
+export class ListaruserComponent {
+
+>>>>>>> 8018b2f14df1fdbfc51183bbbc7b97463961555a
 }

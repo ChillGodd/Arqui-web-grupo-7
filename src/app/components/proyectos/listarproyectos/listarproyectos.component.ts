@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
@@ -13,10 +14,14 @@ import { Tareas } from '../../../models/tareas.model';
 import { RevisionesService } from '../../../services/revisiones.service';
 
 
+=======
+import { Component } from '@angular/core';
+>>>>>>> 8018b2f14df1fdbfc51183bbbc7b97463961555a
 
 @Component({
   selector: 'app-listarproyectos',
   standalone: true,
+<<<<<<< HEAD
   imports: [MatTableModule, MatIconModule, RouterModule, MatPaginatorModule,CommonModule,MatCardModule],
   templateUrl: './listarproyectos.component.html',
   styleUrls: ['./listarproyectos.component.css']
@@ -74,3 +79,12 @@ export class ListarproyectosComponent implements OnInit, AfterViewInit {
     }
   }
 }
+=======
+  imports: [],
+  templateUrl: './listarproyectos.component.html',
+  styleUrl: './listarproyectos.component.css'
+})
+export class ListarproyectosComponent {
+
+}
+>>>>>>> 8018b2f14df1fdbfc51183bbbc7b97463961555a

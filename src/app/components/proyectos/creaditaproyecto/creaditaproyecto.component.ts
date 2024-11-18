@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormControl } from '@angular/forms';
@@ -98,3 +99,17 @@ export class CreaditaproyectoComponent implements OnInit {
     }
   }
 }
+=======
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-creaditaproyecto',
+  standalone: true,
+  imports: [],
+  templateUrl: './creaditaproyecto.component.html',
+  styleUrl: './creaditaproyecto.component.css'
+})
+export class CreaditaproyectoComponent {
+
+}
+>>>>>>> 8018b2f14df1fdbfc51183bbbc7b97463961555a
